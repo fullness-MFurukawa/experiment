@@ -1,0 +1,11 @@
+# DataSource
+spring:
+    datasource:
+        driver-class-name: org.postgresql.Driver
+        url: jdbc:postgresql://springboot_db:5432/exercise_db
+        username: postgres
+        password: postgres
+        type: com.zaxxer.hikari.HikariDataSource
+# MyBatis3
+mybatis:
+    type-aliases-package: jp.co.fullness.mybatis.entity

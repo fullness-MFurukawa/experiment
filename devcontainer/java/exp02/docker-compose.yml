@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  java:
+    image: openjdk:17
+    container_name: spring_boot
+    tty: true
+    working_dir: /app #コンテナ内のワーキングディレクトリ
+    volumes:
+      - type: bind # source(ホストマシン)のディレクトリをtarget(コンテナ)にマウントする
+        source: ../exercise
+        target: /app
+    ports:
+      - 8080:8080 # 通常実行
+      - 5050:5050 # デバッグ用

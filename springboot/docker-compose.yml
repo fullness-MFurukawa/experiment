@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  java:
+    image: openjdk:17
+    container_name: exercise
+    tty: true
+    environment:
+      - JVM_OPTS=-Xmx12g -Xms12g -XX:MaxPermSize=1024m
+    working_dir: /app #コンテナ内のワーキングディレクトリ
+    volumes:
+      - type: bind # source(ホストマシン)のディレクトリをtarget(コンテナ)にマウントする
+        source: ../exercise
+        target: /app
+    ports:
+      - 8085:8085 # 通常実行
+      - 5050:5050 # デバッグ用
+    networks:
+      - external
+networks:
+  external:
+    name: springboot_exercise_db_net
+    external: true
